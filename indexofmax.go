@@ -249,7 +249,7 @@ func IndexOfMaxString(arr []string) int {
 // compareStringsIndexOfMax uses the strings.Compare method to compare two strings, and returns the greater one.
 func compareStringsIndexOfMax(maxValue, current string) string {
 	r := strings.Compare(strings.ToLower(maxValue), strings.ToLower(current))
-	if r > 0 {
+	if r >= 0 {
 		return maxValue
 	}
 
