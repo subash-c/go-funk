@@ -6,8 +6,10 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-// TestIndexOfMaxIssue139Example tests the exact example provided in GitHub issue #139
+// TestIndexOfMaxIssue139Example tests the exact example provided in GitHub issue #139.
 func TestIndexOfMaxIssue139Example(t *testing.T) {
+	t.Parallel()
+
 	nums := []int64{8, 3, 4, 44, 0}
 	result := IndexOfMaxInt64(nums)
 	assert.Equal(t, 3, result, "Should return index 3 for the example in issue #139")
@@ -15,50 +17,56 @@ func TestIndexOfMaxIssue139Example(t *testing.T) {
 }
 
 func TestIndexOfMaxWithArrayNumericInput(t *testing.T) {
+	t.Parallel()
+
 	// Test Data
-	d1 := []int{8, 3, 4, 44, 0}
-	d1dup := []int{44, 3, 4, 44, 0} // duplicate max at beginning
-	n1 := []int{}
+	data1 := []int{8, 3, 4, 44, 0}
+	data1dup := []int{44, 3, 4, 44, 0} // duplicate max at beginning
+	emptyData := []int{}
 
 	// Calls
-	r1 := IndexOfMaxInt(d1)
-	r1dup := IndexOfMaxInt(d1dup)
+	result1 := IndexOfMaxInt(data1)
+	result1dup := IndexOfMaxInt(data1dup)
 
 	// Assertions
-	assert.Equal(t, 3, r1, "It should return the index of max value in array")
-	assert.Equal(t, 0, r1dup, "It should return the first index of duplicate max value")
-	assert.Panics(t, func() { IndexOfMaxInt(n1) }, "It should panic")
+	assert.Equal(t, 3, result1, "It should return the index of max value in array")
+	assert.Equal(t, 0, result1dup, "It should return the first index of duplicate max value")
+	assert.Panics(t, func() { IndexOfMaxInt(emptyData) }, "It should panic")
 }
 
 func TestIndexOfMaxWithArrayFloatInput(t *testing.T) {
+	t.Parallel()
+
 	// Test Data
-	d1 := []float64{2, 38.3, 4, 4.4, 4}
-	d1dup := []float64{38.3, 2, 4, 38.3, 4} // duplicate max at beginning
-	n1 := []float64{}
+	data1 := []float64{2, 38.3, 4, 4.4, 4}
+	data1dup := []float64{38.3, 2, 4, 38.3, 4} // duplicate max at beginning
+	emptyData := []float64{}
 
 	// Calls
-	r1 := IndexOfMaxFloat64(d1)
-	r1dup := IndexOfMaxFloat64(d1dup)
+	result1 := IndexOfMaxFloat64(data1)
+	result1dup := IndexOfMaxFloat64(data1dup)
 
 	// Assertions
-	assert.Equal(t, 1, r1, "It should return the index of max value in array")
-	assert.Equal(t, 0, r1dup, "It should return the first index of duplicate max value")
-	assert.Panics(t, func() { IndexOfMaxFloat64(n1) }, "It should panic")
+	assert.Equal(t, 1, result1, "It should return the index of max value in array")
+	assert.Equal(t, 0, result1dup, "It should return the first index of duplicate max value")
+	assert.Panics(t, func() { IndexOfMaxFloat64(emptyData) }, "It should panic")
 }
 
 func TestIndexOfMaxSingleElement(t *testing.T) {
+	t.Parallel()
+
 	// Test Data with single elements
-	d1 := []int{42}
-	d2 := []float64{3.14}
-	d3 := []string{"hello"}
+	data1 := []int{42}
+	data2 := []float64{3.14}
+	data3 := []string{"hello"}
 
 	// Calls
-	r1 := IndexOfMaxInt(d1)
-	r2 := IndexOfMaxFloat64(d2)
-	r3 := IndexOfMaxString(d3)
+	result1 := IndexOfMaxInt(data1)
+	result2 := IndexOfMaxFloat64(data2)
+	result3 := IndexOfMaxString(data3)
 
 	// Assertions
-	assert.Equal(t, 0, r1, "Single element should return index 0")
-	assert.Equal(t, 0, r2, "Single element should return index 0")
-	assert.Equal(t, 0, r3, "Single element should return index 0")
+	assert.Equal(t, 0, result1, "Single element should return index 0")
+	assert.Equal(t, 0, result2, "Single element should return index 0")
+	assert.Equal(t, 0, result3, "Single element should return index 0")
 }
